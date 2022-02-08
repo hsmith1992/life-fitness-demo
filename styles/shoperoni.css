@@ -3,6 +3,11 @@
 * It's meant to serve as a single file that can be imported into any site
 * and as long as the markup is identical, the design should be applied correctly.
 */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *,
 :after,
 :before {
@@ -304,9 +309,7 @@ input {
 .product-page-quantity-row {
   display: flex;
 }
-.home-page {
-  margin: 30px 0 45px;
-}
+
 .product-grid {
   max-width: 60vw;
   margin: 0 auto;
@@ -355,13 +358,7 @@ input {
   border-radius: 10px;
   overflow: hidden;
 }
-.product-card-frame img {
-  width: 100%;
-  border-radius: 10px;
-  -o-object-fit: cover;
-  object-fit: cover;
-  height: 100%;
-}
+
 .product-card-text {
   margin: 0.5rem 0;
 }

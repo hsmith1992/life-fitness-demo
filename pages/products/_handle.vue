@@ -66,7 +66,7 @@ export default {
     currency(price) {
       const amount = Number(price.amount).toFixed(2)
 
-      return '$' + amount + ` ${price.currencyCode}`
+      return ` ${price.currencyCode}  ` + amount
     },
   },
 }
@@ -76,12 +76,8 @@ export default {
   <main class="product-page">
     <article>
       <section class="product-page-content">
-        <div>
-          <img
-            class="product-page-image"
-            :src="featuredImage.src"
-            :alt="featuredImage.altText"
-          />
+        <div class="">
+          <img :src="featuredImage.src" :alt="featuredImage.altText" />
         </div>
         <div>
           <h1>{{ product.title }}</h1>

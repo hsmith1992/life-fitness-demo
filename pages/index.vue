@@ -1,3 +1,53 @@
+<template>
+  <main class="flex flex-col">
+    <div class="w-full">
+      <div
+        class="
+          h-48
+          md:h-56
+          lg:h-76
+          flex
+          items-center
+          justify-center
+          overflow-hidden
+          relative
+        "
+      >
+        <video
+          class="object-contain w-full"
+          src="https://www.lifefitness.com/resource/blob/1406052/165dff9c33e7d5573481dd96f0d1156a/sl-console-homepage-3-seconds-data.mp4"
+          data-cm-video=""
+          controls=""
+          autoplay=""
+          loop=""
+          muted=""
+          preload="none"
+        >
+          No video available.
+        </video>
+        <div
+          class="
+            absolute
+            w-full
+            h-full
+            bg-black bg-opacity-30
+            z-20
+            flex
+            items-center
+            justify-center
+          "
+        >
+          <h1 class="text-white text-4xl font-bold">
+            THE WORLD’S MOST TRUSTED FITNESS BRANDS
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <product-grid class="" :product-list="filteredProductList" />
+  </main>
+</template>
+
 <script>
 export default {
   async asyncData({ $http, $route }) {
@@ -8,7 +58,7 @@ export default {
     }
   },
   head: () => ({
-    title: 'Shoperoni',
+    title: 'Life Fitness',
   }),
   computed: {
     filteredProductList() {
@@ -31,12 +81,6 @@ export default {
   },
 }
 </script>
-
-<template>
-  <main class="home-page">
-    <product-grid :product-list="filteredProductList" />
-  </main>
-</template>
 
 <style lang="scss" scoped>
 .home-page {

@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <div class="product-grid">
+  <div class="product-grid p-4">
     <product-card
       v-for="product in productList"
       :key="product.node.id"

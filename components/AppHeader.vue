@@ -11,28 +11,79 @@ export default {
 </script>
 
 <template>
-  <header class="app-header">
-    <h1>Shoperoni</h1>
-    <nav class="main-nav">
-      <ul>
-        <li class="main-nav-item">
-          <nuxt-link exact to="/">All</nuxt-link>
+  <header>
+    <div class="w-full bg-gray-800">
+      <ul class="flex w-full">
+        <li>
+          <h2 class="py-2 px-3 bg-gray-200">COMMERCIAL USE</h2>
         </li>
-        <li class="main-nav-item">
-          <nuxt-link to="/?type=cheese">Cheeses</nuxt-link>
-        </li>
-        <li class="main-nav-item">
-          <nuxt-link to="/?type=meat">Meats</nuxt-link>
-        </li>
-        <li class="main-nav-item">
-          <nuxt-link to="/?type=boards">Boards</nuxt-link>
-        </li>
-        <li class="main-nav-item">
-          <div v-if="cartSize > 0" class="cart-size">{{ cartSize }}</div>
-          <nuxt-link to="/cart">Cart</nuxt-link>
+        <li>
+          <h2 class="py-2 px-3 bg-gray-800 text-white w-full">HOME USE</h2>
         </li>
       </ul>
-    </nav>
+    </div>
+    <div class="flex bg-white text-xl shadow-xl sticky top-0 z-50">
+      <div class="p-3">
+        <img class="w-64" src="/images/lf-logo.svg" />
+      </div>
+      <nav class="border-b w-full flex items-center">
+        <ul class="flex h-full items-center">
+          <li
+            class="
+              h-full
+              hover:text-red-800 hover:underline
+              uppercase
+              border-r border-white
+              cursor-pointer
+              flex
+              items-center
+              px-4
+              py-2
+              font-bold
+            "
+          >
+            <nuxt-link exact to="/">Products</nuxt-link>
+          </li>
+
+          <li
+            class="
+              uppercase
+              font-bold
+              h-full
+              hover:text-red-800 hover:underline
+              border-r border-white
+              cursor-pointer
+              flex
+              items-center
+              px-4
+              py-2
+              relative
+            "
+          >
+            <div
+              v-if="cartSize > 0"
+              class="
+                absolute
+                bg-black
+                text-white
+                rounded-full
+                h-6
+                w-6
+                text-sm
+                flex
+                items-center
+                top-2
+                -right-3
+                justify-center
+              "
+            >
+              <p>{{ cartSize }}</p>
+            </div>
+            <nuxt-link to="/cart">Cart</nuxt-link>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
 </template>
 

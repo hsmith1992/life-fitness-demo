@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Shoperoni',
+    title: 'Life Fitness',
     htmlAttrs: {
       lang: 'en',
     },
@@ -25,7 +25,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/styles/main.scss'],
+  css: ['~/styles/main.scss', './assets/css/main.css'],
 
   styleResources: {
     // your settings here
@@ -43,19 +43,27 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
+    '@nuxt/postcss8',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ['@nuxt/http'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+      },
+    },
+  },
 
   // $http Configuration: https://go.nuxtjs.dev/config-build
   http: {
     baseUrl:
       process.env.NODE_ENV !== 'production'
         ? 'http://localhost:8888'
-        : 'https://shopify-nuxt-kit.netlify.app',
+        : 'https://life-fitness-demo.netlify.app',
   },
 }

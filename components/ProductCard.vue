@@ -1,3 +1,21 @@
+<template>
+  <div class="shadow hover:shadow-xl cursor-pointer rounded p-2">
+    <div class="">
+      <NuxtLink :to="`/products/${product.handle}`">
+        <img
+          class="object-contain"
+          :src="featuredImage.src"
+          :alt="featuredImage.altText"
+        />
+      </NuxtLink>
+    </div>
+    <div class="product-card-text">
+      <h3 class="product-card-title">{{ product.title }}</h3>
+      <p class="product-card-description">{{ shortDescription }}</p>
+    </div>
+  </div>
+</template>
+
 <script>
 export default {
   props: {
@@ -16,27 +34,6 @@ export default {
   },
 }
 </script>
-
-<template>
-  <div class="product-card">
-    <div class="product-card-frame">
-      <NuxtLink :to="`/products/${product.handle}`">
-        <img
-          class="prodimg"
-          :src="featuredImage.src"
-          :alt="featuredImage.altText"
-        />
-      </NuxtLink>
-    </div>
-    <div class="product-card-text">
-      <h3 class="product-card-title">{{ product.title }}</h3>
-      <p class="product-card-description">{{ shortDescription }}</p>
-    </div>
-    <NuxtLink :to="`/products/${product.handle}`">
-      <button>View Item ></button>
-    </NuxtLink>
-  </div>
-</template>
 
 <style lang="scss" scoped>
 .product-card {
@@ -63,13 +60,6 @@ export default {
   align-items: center;
   border-radius: 10px;
   overflow: hidden;
-
-  img {
-    width: 100%;
-    border-radius: 10px;
-    object-fit: cover;
-    height: 100%;
-  }
 }
 
 .product-card-text {
