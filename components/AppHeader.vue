@@ -28,24 +28,68 @@ export default {
       </div>
       <nav class="border-b w-full flex items-center">
         <ul class="flex h-full items-center">
-          <li
-            class="
-              h-full
-              hover:text-red-800 hover:underline
-              uppercase
-              border-r border-white
-              cursor-pointer
-              flex
-              items-center
-              px-4
-              py-2
-              font-bold
-            "
-          >
-            <nuxt-link exact to="/">Products</nuxt-link>
+          <li class="h-full">
+            <nuxt-link exact to="/">
+              <div
+                class="
+                  h-full
+                  hover:text-red-800 hover:underline
+                  uppercase
+                  border-r border-white
+                  cursor-pointer
+                  flex
+                  items-center
+                  px-4
+                  py-2
+                  font-bold
+                "
+              >
+                Products
+              </div>
+            </nuxt-link>
+          </li>
+          <li class="h-full">
+            <nuxt-link exact to="/cart">
+              <div
+                class="
+                  h-full
+                  hover:text-red-800 hover:underline
+                  uppercase
+                  border-r border-white
+                  cursor-pointer
+                  flex
+                  items-center
+                  px-4
+                  py-2
+                  font-bold
+                  relative
+                "
+              >
+                <div
+                  v-if="cartSize > 0"
+                  class="
+                    absolute
+                    bg-black
+                    text-white
+                    rounded-full
+                    h-6
+                    w-6
+                    text-sm
+                    flex
+                    items-center
+                    top-2
+                    -right-3
+                    justify-center
+                  "
+                >
+                  <p>{{ cartSize }}</p>
+                </div>
+                Cart
+              </div>
+            </nuxt-link>
           </li>
 
-          <li
+          <!-- <li
             class="
               uppercase
               font-bold
@@ -60,27 +104,8 @@ export default {
               relative
             "
           >
-            <div
-              v-if="cartSize > 0"
-              class="
-                absolute
-                bg-black
-                text-white
-                rounded-full
-                h-6
-                w-6
-                text-sm
-                flex
-                items-center
-                top-2
-                -right-3
-                justify-center
-              "
-            >
-              <p>{{ cartSize }}</p>
-            </div>
             <nuxt-link to="/cart">Cart</nuxt-link>
-          </li>
+          </li> -->
         </ul>
       </nav>
     </div>

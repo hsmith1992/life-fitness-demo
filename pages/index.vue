@@ -11,6 +11,7 @@
           justify-center
           overflow-hidden
           relative
+          shadow
         "
       >
         <video
