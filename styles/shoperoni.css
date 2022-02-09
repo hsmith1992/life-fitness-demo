@@ -47,9 +47,6 @@ p {
 a,
 a:active,
 a:visited {
-  color: #d96528;
-  text-decoration: none;
-  transition: all 0.3s ease;
 }
 button {
   border: 1px solid #ccc;

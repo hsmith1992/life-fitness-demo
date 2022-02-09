@@ -1,5 +1,89 @@
+<template>
+  <main class="product-page">
+    <article>
+      <section class="product-page-content">
+        <div class="">
+          <img :src="featuredImage.src" :alt="featuredImage.altText" />
+        </div>
+        <div>
+          <h1>{{ product.title }}</h1>
+          <p>{{ product.description }}</p>
+          <form method="POST" @submit.prevent="addToCart">
+            <div
+              v-if="productVariants.length > 1"
+              class="product-page-price-list"
+            >
+              <div
+                v-for="{ node: variant } in productVariants"
+                :key="variant.id"
+                class="product-page-price"
+              >
+                <input
+                  :id="variant.id"
+                  v-model="selectedProductId"
+                  type="radio"
+                  name="merchandiseId"
+                  :value="variant.id"
+                  :disabled="variant.quantityAvailable === 0"
+                />
+                <label :for="variant.id">
+                  {{ variant.title }} -
+                  {{
+                    formatCurrency(
+                      variant.priceV2.amount,
+                      variant.priceV2.currencyCode
+                    )
+                  }}
+                  <span v-if="variant.quantityAvailable > 10">(10+ left)</span>
+                  <span v-else-if="variant.quantityAvailable > 0">
+                    (Only {{ variant.quantityAvailable }} left)
+                  </span>
+                  <span v-else> (Bummer. It's sold out!) </span>
+                </label>
+              </div>
+            </div>
+            <div v-else class="product-page-price is-solo pt-4">
+              {{
+                formatCurrency(
+                  productVariants[0].node.priceV2.amount,
+                  productVariants[0].node.priceV2.currencyCode
+                )
+              }}
+              <span v-if="productVariants[0].node.quantityAvailable > 10">
+                (10+ left)
+              </span>
+              <span v-else-if="productVariants[0].node.quantityAvailable > 0">
+                (Only {{ productVariants[0].node.quantityAvailable }} left)
+              </span>
+              <span v-else> (Bummer. It's sold out!) </span>
+            </div>
+            <div
+              v-if="productVariants[0].node.quantityAvailable > 0"
+              class="product-page-quantity-row"
+            >
+              <input
+                v-model.number="selectedProductQty"
+                class="product-page-quantity-input"
+                type="number"
+                name="quantity"
+                min="0"
+                :max="maxQuantity"
+              />
+
+              <button type="submit" class="rounded shadow px-2 p-1 ml-2">
+                Add to Cart
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </article>
+  </main>
+</template>
+
 <script>
 import { mapGetters } from 'vuex'
+import { formatCurrency } from '../../utils/currency'
 
 export default {
   async asyncData({ $http, route }) {
@@ -53,6 +137,7 @@ export default {
     }
   },
   methods: {
+    formatCurrency,
     async addToCart() {
       const cartResponse = await this.$http.$post('/api/add-to-cart', {
         cartId: this.cartId,
@@ -64,81 +149,9 @@ export default {
 
       window.localStorage.setItem('shopifyNuxtCartId', this.cartId)
     },
-    currency(price) {
-      const amount = Number(price.amount).toFixed(2)
-
-      return ` ${price.currencyCode}  ` + amount
-    },
   },
 }
 </script>
-
-<template>
-  <main class="product-page">
-    <article>
-      <section class="product-page-content">
-        <div class="">
-          <img :src="featuredImage.src" :alt="featuredImage.altText" />
-        </div>
-        <div>
-          <h1>{{ product.title }}</h1>
-          <p>{{ product.description }}</p>
-          <form method="POST" @submit.prevent="addToCart">
-            <div
-              v-if="productVariants.length > 1"
-              class="product-page-price-list"
-            >
-              <div
-                v-for="{ node: variant } in productVariants"
-                :key="variant.id"
-                class="product-page-price"
-              >
-                <input
-                  :id="variant.id"
-                  v-model="selectedProductId"
-                  type="radio"
-                  name="merchandiseId"
-                  :value="variant.id"
-                  :disabled="variant.quantityAvailable === 0"
-                />
-                <label :for="variant.id">
-                  {{ variant.title }} - {{ currency(variant.priceV2) }}
-                  <span v-if="variant.quantityAvailable > 10">(10+ left)</span>
-                  <span v-else-if="variant.quantityAvailable > 0">
-                    (Only {{ variant.quantityAvailable }} left)
-                  </span>
-                  <span v-else> (Bummer. It's sold out!) </span>
-                </label>
-              </div>
-            </div>
-            <div v-else class="product-page-price is-solo">
-              {{ currency(productVariants[0].node.priceV2) }}
-              <span v-if="productVariants[0].node.quantityAvailable > 10">
-                (10+ left)
-              </span>
-              <span v-else-if="productVariants[0].node.quantityAvailable > 0">
-                (Only {{ productVariants[0].node.quantityAvailable }} left)
-              </span>
-              <span v-else> (Bummer. It's sold out!) </span>
-            </div>
-            <div class="product-page-quantity-row">
-              <input
-                v-model.number="selectedProductQty"
-                class="product-page-quantity-input"
-                type="number"
-                name="quantity"
-                min="0"
-                :max="maxQuantity"
-              />
-
-              <button type="submit" class="button purchase">Add to Cart</button>
-            </div>
-          </form>
-        </div>
-      </section>
-    </article>
-  </main>
-</template>
 
 <style lang="scss" scoped>
 .product-page {

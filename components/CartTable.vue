@@ -1,5 +1,5 @@
 <template>
-  <table class="cart-table w-1/2">
+  <table class="cart-table">
     <thead>
       <th class="cart-table-heading">Item</th>
       <th class="cart-table-heading">Price</th>
@@ -31,12 +31,12 @@
           {{ itemTotal(item.merchandise.priceV2, item.quantity) }}
         </td>
         <td class="cart-table-cell">
-          <div
-            class="border rounded shadow bg-red-700 p-1"
+          <button
+            class="rounded shadow px-2 p-1 ml-4"
             @click="removeItem(item.id)"
           >
-            Remove
-          </div>
+            Delete
+          </button>
         </td>
       </tr>
     </tbody>

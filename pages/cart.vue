@@ -1,22 +1,43 @@
 <template>
   <main class="cart-page">
-    <article class="cart-page-content flex justify-center py-6">
-      <h1>Your Cart</h1>
-      <div class="w-1/2" v-if="cartItems.length > 0">
+    <article
+      class="
+        cart-page-content
+        uppercase
+        flex flex-col
+        justify-center
+        items-center
+        py-6
+      "
+    >
+      <h1 class="uppercase text-3xl">Your Cart</h1>
+      <div v-if="cartItems.length > 0" class="w-2/3">
         <cart-table />
         <cart-total />
-        <div class="flex justify-end p-2">
+        <div class="flex justify-end p-2 py-4">
           <a
-            class="p-2 bg-green-600 rounded shadow text-white"
+            class="
+              rounded
+              shadow
+              font-bold
+              border
+              hover:bg-black hover:text-white
+              px-2
+              p-1
+              cursor-pointer
+            "
             target="blank"
             :href="checkoutUrl"
-            ><span class="text-white">Checkout</span></a
+            >Checkout</a
           >
         </div>
       </div>
-      <section v-else>
+      <section v-else class="p-6">
         <p class="cart-page-message">Your cart is empty, fill it up!</p>
-        <nuxt-link to="/" class="cart-page-button is-dark">
+        <nuxt-link
+          to="/"
+          class="cart-page-button rounded shadow hover:bg-gray-800 is-dark"
+        >
           Back to Products
         </nuxt-link>
       </section>

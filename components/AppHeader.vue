@@ -120,27 +120,14 @@ import { mapGetters } from 'vuex'
 const OFFSET = 60
 
 export default {
+  data() {
+    return { showNavbar: true, lastScrollPosition: 0, scrollValue: 0 }
+  },
   computed: {
     ...mapGetters({
       cartSize: 'cart/size',
     }),
   },
-  data() {
-    return { showNavbar: true, lastScrollPosition: 0, scrollValue: 0 }
-  },
-  methods: {
-    onScroll() {
-      if (window.pageYOffset < 0) {
-        return
-      }
-      if (Math.abs(window.pageYOffset - this.lastScrollPosition) < OFFSET) {
-        return
-      }
-      this.showNavbar = window.pageYOffset < this.lastScrollPosition
-      this.lastScrollPosition = window.pageYOffset
-    },
-  },
-
   mounted() {
     this.lastScrollPosition = window.pageYOffset
     window.addEventListener('scroll', this.onScroll)
@@ -152,6 +139,19 @@ export default {
 
   beforeDestroy() {
     window.removeEventListener('scroll', this.onScroll)
+  },
+
+  methods: {
+    onScroll() {
+      if (window.pageYOffset < 0) {
+        return
+      }
+      if (Math.abs(window.pageYOffset - this.lastScrollPosition) < OFFSET) {
+        return
+      }
+      this.showNavbar = window.pageYOffset < 60 // this.lastScrollPosition
+      this.lastScrollPosition = window.pageYOffset
+    },
   },
 }
 </script>
