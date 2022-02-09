@@ -1,19 +1,10 @@
-<script>
-import { mapGetters } from 'vuex'
-
-export default {
-  computed: {
-    ...mapGetters({
-      cartSize: 'cart/size',
-    }),
-  },
-}
-</script>
-
 <template>
-  <header>
-    <div class="w-full bg-gray-800">
-      <ul class="flex w-full">
+  <header class="sticky top-0 z-50">
+    <div
+      class="w-full bg-gray-800 transition-all duration-500"
+      :class="{ '-translate-y-10': !showNavbar }"
+    >
+      <ul class="flex w-full h-10">
         <li>
           <h2 class="py-2 px-3 bg-gray-200">COMMERCIAL USE</h2>
         </li>
@@ -22,7 +13,19 @@ export default {
         </li>
       </ul>
     </div>
-    <div class="flex bg-white text-xl shadow-xl sticky top-0 z-50">
+    <div
+      class="
+        flex
+        bg-white
+        text-xl
+        sticky
+        top-0
+        shadow-xl
+        transition-all
+        duration-500
+      "
+      :class="{ '-translate-y-10': !showNavbar }"
+    >
       <div class="p-3">
         <img class="w-64" src="/images/lf-logo.svg" />
       </div>
@@ -111,6 +114,47 @@ export default {
     </div>
   </header>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+const OFFSET = 60
+
+export default {
+  computed: {
+    ...mapGetters({
+      cartSize: 'cart/size',
+    }),
+  },
+  data() {
+    return { showNavbar: true, lastScrollPosition: 0, scrollValue: 0 }
+  },
+  methods: {
+    onScroll() {
+      if (window.pageYOffset < 0) {
+        return
+      }
+      if (Math.abs(window.pageYOffset - this.lastScrollPosition) < OFFSET) {
+        return
+      }
+      this.showNavbar = window.pageYOffset < this.lastScrollPosition
+      this.lastScrollPosition = window.pageYOffset
+    },
+  },
+
+  mounted() {
+    this.lastScrollPosition = window.pageYOffset
+    window.addEventListener('scroll', this.onScroll)
+    const viewportMeta = document.createElement('meta')
+    viewportMeta.name = 'viewport'
+    viewportMeta.content = 'width=device-width, initial-scale=1'
+    document.head.appendChild(viewportMeta)
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.onScroll)
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 .app-header {

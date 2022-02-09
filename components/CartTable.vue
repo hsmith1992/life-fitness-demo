@@ -1,33 +1,3 @@
-<script>
-import { mapGetters } from 'vuex'
-import { formatCurrency } from '../utils/currency'
-
-export default {
-  computed: {
-    ...mapGetters({
-      cartId: 'cart/id',
-      cartItems: 'cart/items',
-    }),
-  },
-  methods: {
-    formatCurrency,
-    itemTotal(price, quantity) {
-      const totalPrice = Number(price.amount) * Number(quantity)
-
-      return this.formatCurrency(totalPrice, price.currencyCode)
-    },
-    async removeItem(lineId) {
-      const shopifyResponse = await this.$http.$post('/api/remove-from-cart', {
-        cartId: this.cartId,
-        lineId,
-      })
-
-      this.$store.dispatch('cart/updateBase', shopifyResponse)
-    },
-  },
-}
-</script>
-
 <template>
   <table class="cart-table">
     <thead>
@@ -61,12 +31,47 @@ export default {
           {{ itemTotal(item.merchandise.priceV2, item.quantity) }}
         </td>
         <td class="cart-table-cell">
-          <button @click="removeItem(item.id)">Remove Item</button>
+          <div
+            class="border rounded shadow bg-red-700 p-1"
+            @click="removeItem(item.id)"
+          >
+            Remove
+          </div>
         </td>
       </tr>
     </tbody>
   </table>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+import { formatCurrency } from '../utils/currency'
+
+export default {
+  computed: {
+    ...mapGetters({
+      cartId: 'cart/id',
+      cartItems: 'cart/items',
+    }),
+  },
+  methods: {
+    formatCurrency,
+    itemTotal(price, quantity) {
+      const totalPrice = Number(price.amount) * Number(quantity)
+
+      return this.formatCurrency(totalPrice, price.currencyCode)
+    },
+    async removeItem(lineId) {
+      const shopifyResponse = await this.$http.$post('/api/remove-from-cart', {
+        cartId: this.cartId,
+        lineId,
+      })
+
+      this.$store.dispatch('cart/updateBase', shopifyResponse)
+    },
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 .cart-table {

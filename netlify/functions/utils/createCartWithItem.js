@@ -11,6 +11,7 @@ exports.createCartWithItem = async ({ itemId, quantity }) => {
               id
               createdAt
               updatedAt
+              checkoutUrl
               lines(first:10) {
                 edges {
                   node {
@@ -66,7 +67,6 @@ exports.createCartWithItem = async ({ itemId, quantity }) => {
         },
       },
     })
-
     return response
   } catch (error) {
     console.log(error)

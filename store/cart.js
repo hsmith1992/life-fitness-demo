@@ -3,6 +3,7 @@ import { formatCurrency } from '../utils/currency'
 export const state = () => ({
   base: {
     id: '',
+    checkoutUrl: '',
     lines: {
       edges: [],
     },
@@ -59,6 +60,11 @@ export const getters = {
       return formatCurrency(total.amount, total.currencyCode)
     }
   },
+  checkoutUrl: (state) => {
+    if (state.base && state.base.checkoutUrl) {
+      return state.base.checkoutUrl
+    }
+  },
 }
 
 export const mutations = {
@@ -76,6 +82,7 @@ export const actions = {
     window.localStorage.setItem('shopifyNuxtCart', JSON.stringify(response))
     commit('setBase', response)
   },
+
   updateId({ commit }, id) {
     window.localStorage.removeItem('shopifyNuxtCartId')
     window.localStorage.setItem('shopifyNuxtCartId', id)

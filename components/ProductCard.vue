@@ -1,5 +1,15 @@
 <template>
-  <div class="shadow hover:shadow-xl cursor-pointer rounded p-2">
+  <div
+    class="
+      shadow
+      hover:shadow-xl
+      transition-all
+      duration-500
+      cursor-pointer
+      rounded
+      p-2
+    "
+  >
     <div class="">
       <NuxtLink :to="`/products/${product.handle}`">
         <img

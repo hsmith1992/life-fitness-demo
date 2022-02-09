@@ -1,20 +1,46 @@
+<template>
+  <main class="cart-page">
+    <article class="cart-page-content">
+      <h1>Your Cart</h1>
+      <div v-if="cartItems.length > 0">
+        <cart-table />
+        <cart-total />
+        <div class="flex justify-end p-2">
+          <a
+            class="p-2 bg-green-600 rounded shadow text-white"
+            target="blank"
+            :href="checkoutUrl"
+            ><span class="text-white">Checkout</span></a
+          >
+        </div>
+      </div>
+      <section v-else>
+        <p class="cart-page-message">Your cart is empty, fill it up!</p>
+        <nuxt-link to="/" class="cart-page-button is-dark">
+          Back to Products
+        </nuxt-link>
+      </section>
+    </article>
+  </main>
+</template>
+
 <script>
 import { mapGetters } from 'vuex'
 
 export default {
   head: () => ({
-    title: 'Shoperoni - Cart',
+    title: 'Life Fitness - Cart',
   }),
   computed: {
     ...mapGetters({
       cartId: 'cart/id',
       cartItems: 'cart/items',
+      checkoutUrl: 'cart/checkoutUrl',
     }),
   },
   async mounted() {
     // Get local cart id
     const localCart = window.localStorage.getItem('shopifyNuxtCart')
-
     if (localCart) {
       this.$store.dispatch('cart/updateBase', JSON.parse(localCart))
     } else {
@@ -29,24 +55,6 @@ export default {
   },
 }
 </script>
-
-<template>
-  <main class="cart-page">
-    <article class="cart-page-content">
-      <h1>Your Cart</h1>
-      <div v-if="cartItems.length > 0">
-        <cart-table />
-        <cart-total />
-      </div>
-      <section v-else>
-        <p class="cart-page-message">Your cart is empty, fill it up!</p>
-        <nuxt-link to="/" class="cart-page-button is-dark">
-          Back to Products
-        </nuxt-link>
-      </section>
-    </article>
-  </main>
-</template>
 
 <style lang="scss" scoped>
 .cart-page {

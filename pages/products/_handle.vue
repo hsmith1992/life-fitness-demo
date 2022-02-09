@@ -16,7 +16,7 @@ export default {
     selectedProductQty: 1,
   }),
   head: () => ({
-    title: 'Shoperoni - Product',
+    title: 'Life Fitness - Product',
   }),
   computed: {
     ...mapGetters({
@@ -61,6 +61,7 @@ export default {
       })
 
       this.$store.dispatch('cart/updateBase', cartResponse)
+
       window.localStorage.setItem('shopifyNuxtCartId', this.cartId)
     },
     currency(price) {

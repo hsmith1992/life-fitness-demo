@@ -31,6 +31,7 @@ exports.handler = async (event) => {
         query getCart($cartId: ID!) {
           cart(id: $cartId) {
             id
+            checkoutUrl
             lines(first: 10) {
               edges {
                 node {
