@@ -5,7 +5,7 @@ export default {
   computed: {
     ...mapGetters({
       subtotal: 'cart/subtotal',
-      tax: 'cart/tax',
+
       total: 'cart/total',
     }),
   },
@@ -20,7 +20,7 @@ export default {
           <strong>Subtotal:</strong>
         </p>
         <p>Shipping:</p>
-        <p>Tax:</p>
+
         <p>Total:</p>
       </div>
       <div class="cart-total-column">
@@ -28,7 +28,7 @@ export default {
           <strong>{{ subtotal }}</strong>
         </p>
         <p>Free Shipping</p>
-        <p>{{ tax }}</p>
+
         <p>{{ total }}</p>
       </div>
     </div>

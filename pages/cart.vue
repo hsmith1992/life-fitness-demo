@@ -1,8 +1,8 @@
 <template>
   <main class="cart-page">
-    <article class="cart-page-content">
+    <article class="cart-page-content flex justify-center py-6">
       <h1>Your Cart</h1>
-      <div v-if="cartItems.length > 0">
+      <div class="w-1/2" v-if="cartItems.length > 0">
         <cart-table />
         <cart-total />
         <div class="flex justify-end p-2">
