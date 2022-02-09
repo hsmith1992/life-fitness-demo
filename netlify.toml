@@ -6,9 +6,3 @@
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
-  
-[[plugins]]
-  package = "@algolia/netlify-plugin-crawler"
-  [plugins.inputs]
-    branches = ['main', 'develop', 'feat/add-algolia']
-    renderJavaScript = true
