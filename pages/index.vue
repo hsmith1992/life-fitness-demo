@@ -39,7 +39,7 @@
           "
         >
           <h1 class="text-white text-4xl font-bold">
-            THE WORLD’S MOST TRUSTED FITNESS BRANDS IS HERE
+            THE WORLD’S MOST TRUSTED FITNESS BRANDS IS
           </h1>
         </div>
       </div>

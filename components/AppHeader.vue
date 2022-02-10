@@ -6,10 +6,24 @@
     >
       <ul class="flex w-full h-10">
         <li>
-          <h2 class="py-2 px-3 bg-gray-200">COMMERCIAL USE</h2>
+          <h2 class="py-2 text-center w-52 font-bold bg-gray-200">
+            COMMERCIAL USE
+          </h2>
         </li>
         <li>
-          <h2 class="py-2 px-3 bg-gray-800 text-white w-full">HOME USE</h2>
+          <h2
+            class="
+              py-2
+              px-3
+              font-bold
+              border-r border-white
+              bg-gray-800
+              text-white text-center
+              w-52
+            "
+          >
+            HOME USE
+          </h2>
         </li>
       </ul>
     </div>
