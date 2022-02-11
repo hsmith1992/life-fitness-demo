@@ -126,6 +126,7 @@
         </ul>
       </nav>
     </div>
+    <div id="search"></div>
   </header>
 </template>
 

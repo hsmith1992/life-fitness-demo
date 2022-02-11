@@ -27,9 +27,9 @@ export default {
 
   mounted() {
     window.algoliasearchNetlify({
-      appId: 'R04FAN1J2R',
-      apiKey: '5d4b3b98f589d66a640b95a7f360bcfb',
-      siteId: '40b1b69b-a02a-4f23-a669-418b5b94cbf2',
+      appId: 'XW96KWG67H',
+      apiKey: '0b143ff5cc7a5a40747e290d20f1bf85',
+      siteId: 'c73e73c4-d5d0-44fd-808a-1ad9b6d76b23',
       branch: 'main',
       selector: 'div#search',
       placeholder: 'Search...',
