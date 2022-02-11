@@ -19,9 +19,7 @@
         <div
           class="absolute w-full h-full bg-black bg-opacity-30 z-20 flex items-center justify-center"
         >
-          <h1 class="text-white text-4xl font-bold">
-            THE WORLD’S MOST TRUSTED FITNESS BRANDS EVER!!
-          </h1>
+          <h1 class="text-white text-4xl font-bold">TESTING NEW BRANCH</h1>
         </div>
       </div>
     </div>
