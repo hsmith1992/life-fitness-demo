@@ -1,6 +1,23 @@
 <template>
   <main class="flex flex-col">
     <div class="w-full">
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css"
+      />
+      <script
+        type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"
+      ></script>
+      <script type="text/javascript">
+        algoliasearchNetlify({
+          appId: 'XW96KWG67H',
+          apiKey: '0b143ff5cc7a5a40747e290d20f1bf85',
+          siteId: 'c73e73c4-d5d0-44fd-808a-1ad9b6d76b23',
+          branch: 'main',
+          selector: 'div#search',
+        })
+      </script>
       <div
         class="
           h-48
@@ -39,7 +56,7 @@
           "
         >
           <h1 class="text-white text-4xl font-bold">
-            THE WORLD’S MOST TRUSTED FITNESS BRANDS ARE HERE!!!!
+            THE WORLD’S MOST TRUSTED FITNESS BRANDS
           </h1>
         </div>
       </div>
