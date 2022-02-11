@@ -5,3 +5,36 @@
     <app-footer />
   </div>
 </template>
+
+<script>
+export default {
+  head() {
+    return {
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css',
+        },
+      ],
+      script: [
+        {
+          type: 'text/javascript',
+          src: 'https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js',
+        },
+      ],
+    }
+  },
+
+  mounted() {
+    window.algoliasearchNetlify({
+      appId: 'R04FAN1J2R',
+      apiKey: '5d4b3b98f589d66a640b95a7f360bcfb',
+      siteId: '40b1b69b-a02a-4f23-a669-418b5b94cbf2',
+      branch: 'main',
+      selector: 'div#search',
+      placeholder: 'Search...',
+      detached: true,
+    })
+  },
+}
+</script>
