@@ -1,11 +1,11 @@
 <template>
-  <main class="flex flex-col">
+  <main class="flex z-50 flex-col">
     <div class="w-full">
       <div
         class="h-48 md:h-56 lg:h-76 flex items-center justify-center overflow-hidden relative shadow"
       >
         <video
-          class="object-contain w-full"
+          class="object-contain w-full z-0"
           src="https://www.lifefitness.com/resource/blob/1406052/165dff9c33e7d5573481dd96f0d1156a/sl-console-homepage-3-seconds-data.mp4"
           data-cm-video=""
           controls=""
@@ -17,7 +17,7 @@
           No video available.
         </video>
         <div
-          class="absolute w-full h-full bg-black bg-opacity-30 z-20 flex items-center justify-center"
+          class="absolute w-full h-full bg-black bg-opacity-30 flex items-center justify-center"
         >
           <h1 class="text-white text-4xl font-bold">
             THE WORLD’S MOST TRUSTED FITNESS BRANDS IS FINALLY HERE

@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0">
+  <header class="sticky z-10 top-0">
     <div
       class="w-full bg-gray-800 transition-all duration-500"
       :class="{ '-translate-y-10': !showNavbar }"
@@ -20,7 +20,7 @@
       </ul>
     </div>
     <div
-      class="flex bg-white text-xl sticky top-0 shadow-xl transition-all duration-500"
+      class="flex bg-white text-xl sticky top-0 z-50 shadow-xl transition-all duration-500"
       :class="{ '-translate-y-10': !showNavbar }"
     >
       <div class="p-3">

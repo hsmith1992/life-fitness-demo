@@ -8,6 +8,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.aa-DetachedContainer {
+  z-index: 100 !important;
+}
+
 *,
 :after,
 :before {
