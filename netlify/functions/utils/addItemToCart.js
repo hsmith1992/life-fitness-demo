@@ -7,6 +7,7 @@ exports.addItemToCart = async ({ cartId, itemId, quantity }) => {
         mutation addItemToCart($cartId: ID!, $lines: [CartLineInput!]!) {
           cartLinesAdd(cartId: $cartId, lines: $lines) {
             cart {
+              checkoutUrl
               id
               lines(first: 10) {
                 edges {
