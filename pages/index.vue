@@ -1,35 +1,8 @@
 <template>
   <main class="flex flex-col">
     <div class="w-full">
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css"
-      />
-      <script
-        type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"
-      ></script>
-      <script type="text/javascript">
-        algoliasearchNetlify({
-          appId: 'XW96KWG67H',
-          apiKey: '0b143ff5cc7a5a40747e290d20f1bf85',
-          siteId: 'c73e73c4-d5d0-44fd-808a-1ad9b6d76b23',
-          branch: 'main',
-          selector: 'div#search',
-        })
-      </script>
       <div
-        class="
-          h-48
-          md:h-56
-          lg:h-76
-          flex
-          items-center
-          justify-center
-          overflow-hidden
-          relative
-          shadow
-        "
+        class="h-48 md:h-56 lg:h-76 flex items-center justify-center overflow-hidden relative shadow"
       >
         <video
           class="object-contain w-full"
@@ -44,16 +17,7 @@
           No video available.
         </video>
         <div
-          class="
-            absolute
-            w-full
-            h-full
-            bg-black bg-opacity-30
-            z-20
-            flex
-            items-center
-            justify-center
-          "
+          class="absolute w-full h-full bg-black bg-opacity-30 z-20 flex items-center justify-center"
         >
           <h1 class="text-white text-4xl font-bold">
             THE WORLD’S MOST TRUSTED FITNESS BRANDS

@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 z-50">
+  <header class="sticky top-0">
     <div
       class="w-full bg-gray-800 transition-all duration-500"
       :class="{ '-translate-y-10': !showNavbar }"
@@ -12,15 +12,7 @@
         </li>
         <li>
           <h2
-            class="
-              py-2
-              px-3
-              font-bold
-              border-r border-white
-              bg-gray-800
-              text-white text-center
-              w-52
-            "
+            class="py-2 px-3 font-bold border-r border-white bg-gray-800 text-white text-center w-52"
           >
             HOME USE
           </h2>
@@ -28,38 +20,18 @@
       </ul>
     </div>
     <div
-      class="
-        flex
-        bg-white
-        text-xl
-        sticky
-        top-0
-        shadow-xl
-        transition-all
-        duration-500
-      "
+      class="flex bg-white text-xl sticky top-0 shadow-xl transition-all duration-500"
       :class="{ '-translate-y-10': !showNavbar }"
     >
       <div class="p-3">
         <img class="w-64" src="/images/lf-logo.svg" />
       </div>
       <nav class="border-b w-full flex items-center">
-        <ul class="flex h-full items-center">
+        <ul class="flex h-full w-full items-center">
           <li class="h-full">
             <nuxt-link exact to="/">
               <div
-                class="
-                  h-full
-                  hover:text-red-800 hover:underline
-                  uppercase
-                  border-r border-white
-                  cursor-pointer
-                  flex
-                  items-center
-                  px-4
-                  py-2
-                  font-bold
-                "
+                class="h-full hover:text-red-800 hover:underline uppercase border-r border-white cursor-pointer flex items-center px-4 py-2 font-bold"
               >
                 Products
               </div>
@@ -68,36 +40,11 @@
           <li class="h-full">
             <nuxt-link exact to="/cart">
               <div
-                class="
-                  h-full
-                  hover:text-red-800 hover:underline
-                  uppercase
-                  border-r border-white
-                  cursor-pointer
-                  flex
-                  items-center
-                  px-4
-                  py-2
-                  font-bold
-                  relative
-                "
+                class="h-full hover:text-red-800 hover:underline uppercase border-r border-white cursor-pointer flex items-center px-4 py-2 font-bold relative"
               >
                 <div
                   v-if="cartSize > 0"
-                  class="
-                    absolute
-                    bg-black
-                    text-white
-                    rounded-full
-                    h-6
-                    w-6
-                    text-sm
-                    flex
-                    items-center
-                    top-2
-                    -right-3
-                    justify-center
-                  "
+                  class="absolute bg-black text-white rounded-full h-6 w-6 text-sm flex items-center top-2 -right-3 justify-center"
                 >
                   <p>{{ cartSize }}</p>
                 </div>
@@ -123,10 +70,10 @@
           >
             <nuxt-link to="/cart">Cart</nuxt-link>
           </li> -->
+          <li class="w-32 ml-auto mr-4"><div id="search"></div></li>
         </ul>
       </nav>
     </div>
-    <div id="search"></div>
   </header>
 </template>
 
