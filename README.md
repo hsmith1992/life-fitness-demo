@@ -2,21 +2,25 @@
 
 A starter template kit for those looking to use Shopify's new Cart API with Nuxt.js.
 
+Ensure you set the environment variables to point to your Shopify storefront api:
+SHOPIFY_STOREFRONT_API_TOKEN
+SHOPIFY_API_ENDPOINT
+
 ## Build Setup
 
 ```bash
 # install dependencies
-$ yarn install
+$ yarn install / npm install
 
 # serve with hot reload at localhost:3000
-$ yarn dev
+$ yarn dev / npm run dev
 
 # build for production and launch server
-$ yarn build
-$ yarn start
+$ yarn build / npm run build
+$ yarn start / npm run start
 
 # generate static project
-$ yarn generate
+$ yarn generate / npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
