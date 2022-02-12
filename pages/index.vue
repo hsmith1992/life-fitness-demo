@@ -19,7 +19,9 @@
         <div
           class="absolute w-full h-full bg-black bg-opacity-30 z-20 flex items-center justify-center"
         >
-          <h1 class="text-white text-4xl font-bold">TESTING NEW BRANCH</h1>
+          <h1 class="text-white text-4xl font-bold">
+            THIS IS A NEW TEST BRANCH
+          </h1>
         </div>
       </div>
     </div>
