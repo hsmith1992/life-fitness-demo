@@ -27,7 +27,7 @@ export default {
 
   mounted() {
     window.algoliasearchNetlify({
-      appId: 'XW96KWG67H',
+      appId: 'XYESA5GHKD',
       apiKey: 'fd8821a7ffd3eb7a19ac9ed389d79c8e',
       siteId: 'b5be802d-17da-49dd-bc91-9fcb9495fb99',
       branch: 'main',
