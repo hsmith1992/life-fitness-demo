@@ -28,8 +28,8 @@ export default {
   mounted() {
     window.algoliasearchNetlify({
       appId: 'XW96KWG67H',
-      apiKey: 'c2437eb07b468d7a4166004c94d53b3e',
-      siteId: '2b8beb7e-d50a-4a66-9c86-621a9a015848',
+      apiKey: 'fd8821a7ffd3eb7a19ac9ed389d79c8e',
+      siteId: 'b5be802d-17da-49dd-bc91-9fcb9495fb99',
       branch: 'main',
       selector: 'div#search',
       placeholder: 'Search...',
