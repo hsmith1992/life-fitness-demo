@@ -20,7 +20,7 @@
           class="absolute w-full h-full bg-black bg-opacity-30 flex items-center justify-center"
         >
           <h1 class="text-white text-4xl font-bold">
-            THE WORLD’S MOST TRUSTED FITNESS BRANDS
+            THE WORLD’S MOST TRUSTED FITNESS BRANDS IS HERE
           </h1>
         </div>
       </div>
